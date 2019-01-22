@@ -1,0 +1,11 @@
+<div class="box">{{ title }}</div>
+<h1>{{title}}</h1>
+
+
+<nav class="clearfix">
+  <a
+class="link" *ngFor="let item of link" routerLinkActive="active" [routerLink]="item.link"
+  >{{ item.name }}
+  </a>
+</nav>
+<router-outlet></router-outlet>

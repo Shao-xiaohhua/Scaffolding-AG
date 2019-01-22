@@ -1,0 +1,20 @@
+@import '../assets/scss/common.scss';
+.box {
+  font-size: 19px;
+  color: red;
+}
+nav {
+  display: block;
+}
+.link {
+  width: 100px;
+  float: left;
+  font-size: 18px;
+  text-align: center;
+  line-height: 50px;
+  display: block;
+  border: 1px solid #666;
+  &.active{
+    color: $brand;
+  }
+}

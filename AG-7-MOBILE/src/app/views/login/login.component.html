@@ -1,0 +1,14 @@
+<br />
+<br />
+<div class="am-list-body">
+<InputItem [focus]="titleFocus" [(ngModel)]="form.name">
+  <span (click)="clickTitle()">用户名：</span>
+</InputItem>
+<InputItem [focus]="titleFocuspwd" [(ngModel)]="form.pass">
+  <span (click)="clickTitlepwd()">密码：</span>
+</InputItem>
+</div>
+<br><br>
+<div Button [type]="'primary'" (click)="onSubmit()">立即创建</div>
+<br />
+<div Button [type]="'warning'">取消</div>

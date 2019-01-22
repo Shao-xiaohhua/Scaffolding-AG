@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://10.222.1.52:8084/",
+    "ws": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

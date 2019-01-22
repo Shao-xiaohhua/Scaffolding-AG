@@ -1,0 +1,19 @@
+<div>
+  <a [routerLink]="['/index']" routerLinkActive="active">跳转到首页</a><br />
+  <a [routerLink]="['/showChart']" [queryParams]="key">跳转到图表页</a><br />
+  <a [routerLink]="['/login', 1]">跳转到登录页</a><br />
+  <br />
+  <br />
+  <input
+    type="file"
+    accept="images/*"
+    [(ngModel)]="bindImg"
+    (change)="upLoad($event)"
+  />
+  <img class="show-image" [src]="imgsrc" alt="" />
+  <ImagePicker
+    [files]="files"
+    [selectable]="files.length < 4"
+    (onChange)="fileChange($event)"
+  ></ImagePicker>
+</div>

@@ -1,0 +1,6 @@
+<div class="tabbar-box">
+  <a [routerLink]="item.url" routerLinkActive="active" *ngFor="let item of bar" class="bar-item" >
+    <div [class]="'iconfont '+item.icon"></div>
+    <div class="bar-title">{{item.title}}</div>
+  </a>
+</div>

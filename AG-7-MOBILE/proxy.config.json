@@ -1,0 +1,18 @@
+{
+  "/url": {
+    "target": "http://12348.justice.gov.cn/",
+    "ws": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/url": ""
+    }
+  },
+  "/apis": {
+    "target": "http://10.222.1.52:8084/",
+    "ws": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/apis": ""
+    }
+  }
+}

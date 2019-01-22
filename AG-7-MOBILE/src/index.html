@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mobile</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+  <script>
+    let remFn = function () {
+      let fontSize
+      fontSize = document.body.clientWidth / 750 * 100
+      document.querySelector('html').style.fontSize = fontSize + 'px'
+    }
+    remFn()
+    window.onresize = function () {
+      remFn()
+    }
+  </script>
+</body>
+</html>

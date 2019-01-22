@@ -1,0 +1,87 @@
+<div [hidden]="submitted">
+  {{diagnostic}}
+  <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" minlength="4" appForbiddenName="bob" [(ngModel)]="model.name" class="form-control" id="name"
+        required [(ngModel)]="model.name" name="name" #name="ngModel">
+      <br>TODO: remove this: {{name.valid}}
+      <br>
+      {{name.pristine}}
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        Name is required
+      </div>
+<!-- 表单验证 -->
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="name.errors.forbiddenName">
+          Name cannot be Bob.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Alter Ego</label>
+      <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo">
+    </div>
+
+    <div class="form-group">
+      <label for="power">Hero Power</label>
+      <select class="form-control" id="power" required [(ngModel)]="model.power" name="power">
+        <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-9">{{ model.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Alter Ego</div>
+    <div class="col-xs-9">{{ model.alterEgo }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Power</div>
+    <div class="col-xs-9">{{ model.power }}</div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>
+<h1>蚂蚁表单</h1>
+<form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefixUser">
+        <input formControlName="userName" nz-input placeholder="账号">
+      </nz-input-group>
+      <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">请输入账号!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefixLock">
+        <input formControlName="password" nz-input type="password" placeholder="密码">
+      </nz-input-group>
+      <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">请输入密码!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">Log in</button>
+    </nz-form-control>
+  </nz-form-item>
+  <ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+  <ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>
+</form>

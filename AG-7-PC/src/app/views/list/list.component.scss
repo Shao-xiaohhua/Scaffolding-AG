@@ -1,0 +1,188 @@
+@import '../../../assets/scss/common.scss';
+.upload-pic {
+  height: 180px;
+  width: 240px;
+  padding-top: 40px;
+  display: block;
+  background-color: #ededed;
+  cursor: pointer;
+  input {
+    height: 20px;
+    opacity: 0;
+  }
+  .plus {
+    position: relative;
+    margin: 0 auto;
+    height: 30px;
+    width: 30px;
+    background: rgb(255, 217, 0);
+    border-radius: 50%;
+    &:before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 16px;
+      height: 2px;
+      margin: auto;
+      background-color: #fff;
+      content: '';
+    }
+    &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 2px;
+      height: 16px;
+      background-color: #fff;
+      content: '';
+    }
+  }
+  .word {
+    position: relative;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+  }
+}
+.upload {
+  position: relative;
+  float: left;
+  height: 200px;
+  width: 200px;
+  margin-right: 30px;
+}
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(22, 21, 21, 0.4);
+  transition: height 0.3s;
+  &.no-cover {
+    height: 0;
+    background-color: rgba(22, 21, 21, 0.4);
+    transition: height 0.3s;
+    color: transparent;
+  }
+}
+.finish {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 80px;
+  height: 20px;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 10px;
+  color: transparent;
+  &.open {
+    // color: #fff;
+    // background-color: rgba(22, 21, 21, 0.4);
+    animation: trans 1.8s;
+  }
+}
+@keyframes trans {
+  from {
+    background: rgba(22, 21, 21, 0.4);
+    color: #fff;
+  }
+
+  to {
+    background: transparent;
+    color: transparent;
+  }
+}
+.else {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  background-color: rgba(22, 21, 21, 0.4);
+  border-radius: 50%;
+  display: none;
+  cursor: pointer;
+  &:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 2px;
+    width: 10px;
+    transform: rotate(45deg);
+    background-color: #fff;
+    content: '';
+  }
+  &::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 2px;
+    width: 10px;
+    transform: rotate(-45deg);
+    background-color: #fff;
+    content: '';
+  }
+}
+.upload:hover .else.open {
+  display: block;
+}
+.preview-img {
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+.example-list {
+  width: 100%;
+  min-height: 800px;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 4px;
+}
+
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

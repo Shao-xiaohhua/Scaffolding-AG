@@ -1,0 +1,32 @@
+<div #numbers>1234</div>
+<span class="iconfont icon-select"></span>
+<app-child #child [title]="title"></app-child>
+<img src="assets/images/example.png" alt="" /> <br />
+<br />
+<button (click)="clickBtn()">按钮</button> <br />
+<WingBlank>
+  <Carousel
+    [infinite]="true"
+    [vertical]="false"
+    [selectedIndex]="1"
+    (beforeChange)="beforeChange($event)"
+    (afterChange)="afterChange($event)"
+  >
+    <CarouselSlide *ngFor="let item of state.data">
+      <div
+        style="display: inline-block; width: 100%;"
+        [ngStyle]="{ height: state.imgHeight }"
+      >
+        <img
+          src="https://zos.alipayobjects.com/rmsportal/{{ item }}.png"
+          style="width: 100%;"
+        />
+      </div>
+    </CarouselSlide>
+  </Carousel>
+</WingBlank>
+<ul>
+  <li *ngFor="let item of lists">{{ item }}</li>
+  <li *ngFor="let item of lists">{{ item }}</li>
+  <li *ngFor="let item of lists">{{ item }}</li>
+</ul>
