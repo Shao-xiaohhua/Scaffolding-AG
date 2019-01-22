@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-app",
+            "outputPath": "prototype/mobile",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,7 +31,9 @@
               "src/styles.scss",
               "src/assets/fonts/iconfont.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "/prototype/mobile/",
+            "deployUrl": "/prototype/mobile/"
           },
           "configurations": {
             "production": {
