@@ -8,8 +8,17 @@
 <div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
   <div *ngFor="let item of list; let i=index" class="upload" cdkDrag>
     <div class="cover" [class.no-cover]="item.imgswitch">上传中</div>
-    <div class="finish" [class.open]="item.imgswitch">上传完成</div>
+    <!-- <div class="finish" [class.open]="item.imgswitch">上传完成</div> -->
     <div class="else" [class.open]="item.imgswitch" (click)="delete(i)">
+    </div>
+    <label class="change"  (change)="change(i, $event)">
+      <div class="fix">点此修改</div>
+      <input class="inner-input" type="file" accept="image/jpg, image/jpeg, image/png" />
+    </label>
+    <div class="errorconsole">
+      <div class="list" *ngIf="!item.url">{{ item.name }}</div>
+      <div class="list" *ngIf="!item.url && !item.type_status">类型错误</div>
+      <div class="list" *ngIf="!item.url && !item.size_status">大小错误，限制10M</div>
     </div>
     <img class="preview-img" [src]="item.url" />
   </div>

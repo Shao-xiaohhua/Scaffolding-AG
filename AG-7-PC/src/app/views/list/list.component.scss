@@ -88,13 +88,15 @@
   font-size: 12px;
   line-height: 20px;
   text-align: center;
-  background-color: transparent;
+  color: #fff;
+  background-color: rgba(22, 21, 21, 0.4);
   border-radius: 10px;
-  color: transparent;
+  opacity: 1;
   &.open {
-    // color: #fff;
-    // background-color: rgba(22, 21, 21, 0.4);
-    animation: trans 1.8s;
+    opacity: 0;
+    // animation: trans 1.8s;
+
+    transition: opacity 1.8s 1s;
   }
 }
 @keyframes trans {
@@ -107,6 +109,52 @@
     background: transparent;
     color: transparent;
   }
+}
+.errorconsole {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  .list{
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+  }
+}
+
+.change {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  color: #fff;
+  display: none;
+  cursor: pointer;
+  .inner-input {
+    height: 1px;
+    opacity: 0;
+  }
+  .fix {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    width: 100px;
+    margin: auto;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    border-radius: 10px;
+    background-color: rgb(75, 130, 231);
+    z-index: 999;
+  }
+}
+.upload:hover .change {
+  display: block;
 }
 .else {
   position: absolute;
